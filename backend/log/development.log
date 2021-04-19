@@ -221,3 +221,41 @@ Started GET "/favicon.ico" for ::1 at 2021-04-19 13:05:38 -0400
   
 ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
   
+Started GET "/" for 127.0.0.1 at 2021-04-19 13:12:06 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/kay/.rvm/gems/ruby-2.6.1/gems/railties-6.1.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/kay/.rvm/gems/ruby-2.6.1/gems/railties-6.1.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.1ms | Allocations: 410)
+Completed 200 OK in 16ms (Views: 7.7ms | ActiveRecord: 0.0ms | Allocations: 2615)
+
+
+Started GET "/api/v1/visits" for 127.0.0.1 at 2021-04-19 13:12:21 -0400
+Processing by Api::V1::VisitsController#index as HTML
+  [1m[36mVisit Load (0.3ms)[0m  [1m[34mSELECT "visits".* FROM "visits"[0m
+  ↳ app/controllers/api/v1/visits_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 2147)
+
+
+Started GET "/api/v1/restartants" for 127.0.0.1 at 2021-04-19 13:12:32 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/restartants"):
+  
+Started GET "/api/v1/restaurant" for 127.0.0.1 at 2021-04-19 13:12:56 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/restaurant"):
+  
+Started GET "/api/v1/restaurants" for 127.0.0.1 at 2021-04-19 13:13:31 -0400
+Processing by Api::V1::RestaurantsController#index as HTML
+  [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/controllers/api/v1/restaurants_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 3310)
+
+
+Started GET "/api/v1/comments" for 127.0.0.1 at 2021-04-19 13:13:40 -0400
+Processing by Api::V1::CommentsController#index as HTML
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 2.4ms | ActiveRecord: 0.3ms | Allocations: 1298)
+
+

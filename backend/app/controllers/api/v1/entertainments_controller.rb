@@ -1,4 +1,4 @@
-class EntertainmentsController < ApplicationController
+class Api::V1::EntertainmentsController < ApplicationController
   before_action :set_entertainment, only: [:show, :update, :destroy]
 
   # GET /entertainments
