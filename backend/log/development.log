@@ -259,3 +259,26 @@ Processing by Api::V1::CommentsController#index as HTML
 Completed 200 OK in 6ms (Views: 2.4ms | ActiveRecord: 0.3ms | Allocations: 1298)
 
 
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeDateDate (20210419220004)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "avisits" ("id" integer NOT NULL PRIMARY KEY, "date" varchar DEFAULT NULL, "restaurant_id" varchar DEFAULT NULL, "entertainment_id" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "avisits" ("id","date","restaurant_id","entertainment_id","created_at","updated_at")
+                     SELECT "id","date","restaurant_id","entertainment_id","created_at","updated_at" FROM "visits"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "visits"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "visits" ("id" integer NOT NULL PRIMARY KEY, "date" date DEFAULT NULL, "restaurant_id" varchar DEFAULT NULL, "entertainment_id" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "visits" ("id","date","restaurant_id","entertainment_id","created_at","updated_at")
+                     SELECT "id","date","restaurant_id","entertainment_id","created_at","updated_at" FROM "avisits"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "avisits"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210419220004"]]
+  [1m[36mTRANSACTION (16.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
