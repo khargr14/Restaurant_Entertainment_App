@@ -10,11 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_19_130332) do
+ActiveRecord::Schema.define(version: 2021_04_19_163516) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.string "user_id"
+    t.string "entertainment_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "entertainments", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "location_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string "city"
     t.string "state"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string "name"
+    t.string "time_of_day"
+    t.string "location_id"
+    t.string "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -26,6 +51,14 @@ ActiveRecord::Schema.define(version: 2021_04_19_130332) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "currentspot_id"
+  end
+
+  create_table "visits", force: :cascade do |t|
+    t.string "date"
+    t.string "restaurant_id"
+    t.string "entertainment_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

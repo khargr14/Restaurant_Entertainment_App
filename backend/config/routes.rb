@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  resources :visits
+  resources :restaurants
+  resources :comments
+  resources :entertainments
   namespace :api do
     namespace :v1 do
      resources :locations
