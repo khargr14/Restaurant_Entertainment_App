@@ -696,3 +696,27 @@ Completed 200 OK in 13ms (Views: 8.1ms | ActiveRecord: 0.7ms | Allocations: 7182
   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."user_id" = ? /* loading for inspect */ LIMIT ?[0m  [["user_id", "1"], ["LIMIT", 11]]
   [1m[36mLocation Load (0.2ms)[0m  [1m[34mSELECT "locations".* FROM "locations" INNER JOIN "entertainments" ON "locations"."id" = "entertainments"."location_id" INNER JOIN "visits" ON "entertainments"."id" = "visits"."entertainment_id" INNER JOIN "restaurants" ON "visits"."restaurant_id" = "restaurants"."id" WHERE "restaurants"."user_id" = ? /* loading for inspect */ LIMIT ?[0m  [["user_id", "1"], ["LIMIT", 11]]
   [1m[36mLocation Load (0.4ms)[0m  [1m[34mSELECT "locations".* FROM "locations" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2021-04-19 21:14:52 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/kay/.rvm/gems/ruby-2.6.1/gems/railties-6.1.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/kay/.rvm/gems/ruby-2.6.1/gems/railties-6.1.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.3ms | Allocations: 375)
+Completed 200 OK in 15ms (Views: 8.1ms | ActiveRecord: 0.0ms | Allocations: 2595)
+
+
+Started GET "/api/v1/users/1" for 127.0.0.1 at 2021-04-19 21:15:07 -0400
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:47:in `set_user'
+  [1m[36mLocation Load (0.3ms)[0m  [1m[34mSELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15:in `show'
+Completed 200 OK in 45ms (Views: 0.1ms | ActiveRecord: 2.3ms | Allocations: 15928)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2021-04-19 21:18:44 -0400
+Processing by Api::V1::UsersController#index as HTML
+Completed 200 OK in 9ms (Views: 0.1ms | Allocations: 3727)
+
+
