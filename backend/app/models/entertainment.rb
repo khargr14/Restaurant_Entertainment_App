@@ -1,4 +1,4 @@
 class Entertainment < ApplicationRecord
     belongs_to :location
-    has_many :commnets
+    has_many :comments
 end
